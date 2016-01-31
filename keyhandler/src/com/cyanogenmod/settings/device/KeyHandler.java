@@ -18,6 +18,7 @@ package com.cyanogenmod.settings.device;
 
 import android.app.ActivityManagerNative;
 import android.app.KeyguardManager;
+import android.app.NotificationManager;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -101,6 +102,7 @@ public class KeyHandler implements DeviceKeyHandler {
     WakeLock mGestureWakeLock;
     private int mProximityTimeOut;
     private boolean mProximityWakeSupported;
+    private NotificationManager mNotificationManager;
 
     public KeyHandler(Context context) {
         mContext = context;
@@ -129,6 +131,9 @@ public class KeyHandler implements DeviceKeyHandler {
 
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         mCameraManager.registerTorchCallback(new MyTorchCallback(), mEventHandler);
+
+		mNotificationManager = (NotificationManager)
+                mContext.getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     private class MyTorchCallback extends CameraManager.TorchCallback {
@@ -221,16 +226,16 @@ public class KeyHandler implements DeviceKeyHandler {
                 doHapticFeedback();
                 break;
             case MODE_MUTE:
-                Global.putInt(mContext.getContentResolver(), Global.ZEN_MODE,
-                        Global.ZEN_MODE_NO_INTERRUPTIONS);
+			    mNotificationManager.setZenMode(Global.ZEN_MODE_NO_INTERRUPTIONS, null, null);
+                doHapticFeedback();
                 break;
             case MODE_DO_NOT_DISTURB:
-                Global.putInt(mContext.getContentResolver(), Global.ZEN_MODE,
-                        Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
+			    mNotificationManager.setZenMode(Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS, null, null);			
+                doHapticFeedback();
                 break;
             case MODE_NORMAL:
-                Global.putInt(mContext.getContentResolver(), Global.ZEN_MODE,
-                        Global.ZEN_MODE_OFF);
+			    mNotificationManager.setZenMode(Global.ZEN_MODE_OFF, null, null);
+                doHapticFeedback();
                 break;
             }
         }
