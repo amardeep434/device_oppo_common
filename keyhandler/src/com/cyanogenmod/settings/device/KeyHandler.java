@@ -183,6 +183,9 @@ public class KeyHandler implements DeviceKeyHandler {
         public void handleMessage(Message msg) {
             switch (msg.arg1) {
             case FLIP_CAMERA_SCANCODE:
+                mPowerManager.wakeUp(SystemClock.uptimeMillis(), "wakeup-gesture");
+                doHapticFeedback();
+                break;
             case GESTURE_CIRCLE_SCANCODE:
                 ensureKeyguardManager();
                 final String action;
