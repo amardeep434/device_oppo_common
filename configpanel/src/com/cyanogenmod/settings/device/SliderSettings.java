@@ -26,7 +26,7 @@ import com.cyanogenmod.settings.device.utils.NodePreferenceActivity;
 import com.cyanogenmod.settings.device.utils.Constants;
 import com.cyanogenmod.settings.device.utils.FileUtils;
 
-import org.cyanogenmod.internal.util.ScreenType;
+import com.android.internal.util.cm.ScreenType;
 
 import java.io.File;
 
