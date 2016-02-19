@@ -17,7 +17,8 @@
 package com.cyanogenmod.settings.device;
 
 import com.android.internal.util.cm.ScreenType;
-
+import com.cyanogenmod.settings.device.utils.Constants;
+import com.cyanogenmod.settings.device.utils.FileUtils;
 import com.cyanogenmod.settings.device.utils.NodePreferenceActivity;
 
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import android.preference.SwitchPreference;
 
 public class TouchscreenGestureSettings extends NodePreferenceActivity {
     private static final String KEY_HAPTIC_FEEDBACK = "touchscreen_gesture_haptic_feedback";
+    private static final String NAV_SWITCH_NODE = "/proc/nav_switch";
 
     private SwitchPreference mHapticFeedback;
 
@@ -37,6 +39,11 @@ public class TouchscreenGestureSettings extends NodePreferenceActivity {
 
         mHapticFeedback = (SwitchPreference) findPreference(KEY_HAPTIC_FEEDBACK);
         mHapticFeedback.setOnPreferenceChangeListener(this);
+
+       SwitchPreference mKeySwap = (SwitchPreference) findPreference(Constants.KEY_SWAP_KEY);
+        String nav_switch = FileUtils.readOneLine(NAV_SWITCH_NODE);
+        if (nav_switch != null && nav_switch.contains(":0"))
+            mKeySwap.setEnabled(false);
     }
 
     @Override
