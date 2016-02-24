@@ -41,11 +41,6 @@
             android:entryValues="@array/notification_slider_action_entries"
             android:persistent="false" />
 
-        <SwitchPreference
-            android:key="key_swap"
-            android:title="@string/key_swap_title"
-            android:summary="@string/key_swap_summary" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
