@@ -34,11 +34,6 @@
     <PreferenceCategory android:title="@string/touchscreen_extras">
 
         <SwitchPreference
-            android:key="key_swap"
-            android:title="@string/key_swap_title"
-            android:summary="@string/key_swap_summary" />
-
-        <SwitchPreference
             android:key="touchscreen_gesture_haptic_feedback"
             android:persistent="false"
             android:title="@string/haptic_feedback"

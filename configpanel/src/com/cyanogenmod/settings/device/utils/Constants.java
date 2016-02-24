@@ -26,7 +26,6 @@ import android.preference.PreferenceManager;
 public class Constants {
 
     // Preference keys
-    public static final String KEY_SWAP_KEY = "key_swap";
     public static final String TOUCHPAD_STATE_KEY = "touchpad_enable_state";
     public static final String TOUCHPAD_LONG_PRESS_STATE_KEY = "touchpad_long_click_state";
     public static final String TOUCHPAD_DOUBLE_CLICK_STATE_KEY = "touchpad_double_tap_state";
@@ -44,14 +43,12 @@ public class Constants {
             "touchscreen_gesture_flashlight";
 
     // Proc nodes
-    public static final String KEY_SWAP_NODE = "/proc/s1302/key_rep";
     public static final String TOUCH_PAD_NODE = "/proc/touchpad/enable";
     public static final String TOUCHSCREEN_CAMERA_NODE = "/proc/touchpanel/camera_enable";
     public static final String TOUCHSCREEN_MUSIC_NODE = "/proc/touchpanel/music_enable";
     public static final String TOUCHSCREEN_FLASHLIGHT_NODE = "/proc/touchpanel/flashlight_enable";
 
     // Proc nodes default values
-    public static final boolean KEY_SWAP_DEFAULT = false;
     public static final boolean TOUCH_PAD_DEFAULT = false;
     public static final boolean TOUCHSCREEN_CAMERA_DEFAULT = true;
     public static final boolean TOUCHSCREEN_MUSIC_DEFAULT = true;
@@ -72,13 +69,11 @@ public class Constants {
     public static final Map<String, Boolean> sNodeDefaultMap = new HashMap<String, Boolean>();
 
     static {
-        sNodePreferenceMap.put(KEY_SWAP_KEY, KEY_SWAP_NODE);
         sNodePreferenceMap.put(TOUCHPAD_STATE_KEY, TOUCH_PAD_NODE);
         sNodePreferenceMap.put(TOUCHSCREEN_CAMERA_GESTURE_KEY, TOUCHSCREEN_CAMERA_NODE);
         sNodePreferenceMap.put(TOUCHSCREEN_MUSIC_GESTURE_KEY, TOUCHSCREEN_MUSIC_NODE);
         sNodePreferenceMap.put(TOUCHSCREEN_FLASHLIGHT_GESTURE_KEY, TOUCHSCREEN_FLASHLIGHT_NODE);
 
-        sNodeDefaultMap.put(KEY_SWAP_KEY, KEY_SWAP_DEFAULT);
         sNodeDefaultMap.put(TOUCHPAD_STATE_KEY, TOUCH_PAD_DEFAULT);
         sNodeDefaultMap.put(TOUCHSCREEN_CAMERA_GESTURE_KEY, TOUCHSCREEN_CAMERA_DEFAULT);
         sNodeDefaultMap.put(TOUCHSCREEN_MUSIC_GESTURE_KEY, TOUCHSCREEN_MUSIC_DEFAULT);

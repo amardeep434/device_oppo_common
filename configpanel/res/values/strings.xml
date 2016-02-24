@@ -85,7 +85,4 @@
     <string name="mute">Mute</string>
     <string name="do_not_disturb">Do not disturb</string>
     <string name="normal">Normal</string>
-
-    <string name="key_swap_title">Swap keys</string>
-    <string name="key_swap_summary">Swap hardware keys positions</string>
 </resources>
